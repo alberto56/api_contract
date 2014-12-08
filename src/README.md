@@ -21,14 +21,6 @@ Problems will arise when you start documenting the API interfacing Team A and Te
 The API interface as a project
 ------------------------------
 
-The approach proposed here is to not document the API interface, but to release it as a full fledged versioned project.
+The approach proposed here is to not document the API interface, but to release it as a full fledged project.
 
-Take a look at the `examples/plurals` folder herein.
-
-Once you have installed API Testing this on a web server at (for example) http://localhost/apitesting, you can visit http://localhost/apitesting/examples/plurals/frontend/, enter
-
-How to run automated tests
---------------------------
-
- * Install [PHPUnit](https://phpunit.de)
- * Run `phpunit ./` from the command line at the root of the project.
+Take a look at the `examples/plurals` folder herein for an example.

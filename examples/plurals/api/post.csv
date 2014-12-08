@@ -1,0 +1,8 @@
+user,pass,word,__response
+username,password,&,"{""error"":""words must contain between 1 and 50 letters""}"
+username,password,bird,"{""plural"":""birds""}"
+username,not-password,bird,"{""error"":""wrong credentials""}"
+username,password,,"{""error"":""words must contain between 1 and 50 letters""}"
+not-username,password,bird,"{""error"":""wrong credentials""}"
+username,password,snow man,"{""error"":""words must contain between 1 and 50 letters""}"
+username,password,abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx,"{""error"":""words must contain between 1 and 50 letters""}"
