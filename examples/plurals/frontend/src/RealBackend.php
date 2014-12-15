@@ -5,7 +5,7 @@
  */
 
 require_once(dirname(__FILE__) . '/AbstractBackend.php');
-require_once(dirname(__FILE__) . '/../../common/src/Settings.php');
+require_once(dirname(__FILE__) . '/../../common/src/EnvSettings.php');
 
 /**
  * An interface to real backend server
@@ -22,7 +22,7 @@ class RealBackend extends AbstractBackend
    *   Exception
    */
   public function getUser() {
-    return Settings::get('frontend', 'user');
+    return EnvSettings::get('frontend', 'user');
   }
 
   /**
@@ -35,7 +35,7 @@ class RealBackend extends AbstractBackend
    *   Exception
    */
   public function getPass() {
-    return Settings::get('frontend', 'pass');
+    return EnvSettings::get('frontend', 'pass');
   }
 
   /**
@@ -47,7 +47,7 @@ class RealBackend extends AbstractBackend
   protected function getCurlResult($post) {
     require_once(dirname(__FILE__) . '/../../common/src/Request.php');
     $request = new Request();
-    return $request->get(Settings::get('frontend', 'backend_server'), $post);
+    return $request->get(EnvSettings::get('frontend', 'backend_server'), $post);
   }
 
 }

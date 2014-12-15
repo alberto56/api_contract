@@ -21,8 +21,8 @@ class FakeBackend extends AbstractBackend {
   }
 
   public function getUrl() {
-    require_once(dirname(__FILE__) . '/../../common/src/Settings.php');
-    return Settings::get('frontend', 'frontend_server') . '/fake-backend.php';
+    require_once(dirname(__FILE__) . '/../../common/src/EnvSettings.php');
+    return EnvSettings::get('frontend', 'frontend_server') . '/fake-backend.php';
   }
   public function getUser() {
     return 'username';

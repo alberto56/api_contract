@@ -193,7 +193,7 @@ class ApiFormatter {
       if (!isset($return[$row['__response']])) {
         $return[$row['__response']] = array();
       }
-      $return['__response'][] = $this->removeInternal($row);
+      $return[$row['__response']][] = $this->removeInternal($row);
     }
     return $return;
   }
