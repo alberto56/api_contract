@@ -15,6 +15,16 @@ Using API Contract, you can write a CSV with examples of requests and responses,
  * Provide the API consumer (frontend) with the correct responses to example inputs.
  * Test the API implementor (backend) by making sure it returns the correct responses for each given example input.
 
+Other resources and projects
+---------------
+
+API Contract is meant to be very simple and applies to PHP projects only. If you are looking for something more robust, please see the following resources:
+
+ * [Blog post: API as the definition of the truth](http://apievangelist.com/2014/07/15/an-api-definition-as-the-truth-in-the-api-contract/)
+ * [Project: API blueprint](https://apiblueprint.org)
+ * [Project: Swagger](http://swagger.io)
+ * [Project: RAML](http://raml.org)
+
 Installation
 ------------
 
