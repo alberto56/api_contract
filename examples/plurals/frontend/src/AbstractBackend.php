@@ -4,6 +4,17 @@
  * Backend class code.
  */
 
+/**
+ * Represents the backend.
+ *
+ * The frontend project in the plurals example is meant to demonstrate how one can use an
+ * API contract to build an API consumer without communicating directly with the
+ * developers of the API implementor. In this example, the API consumer is the frontend,
+ * which communicates with the backend via this abstract class, which can be concretized
+ * with a fake backend, which uses the example data in examples/plurals/api/post.csv; or
+ * the real backend. The switch which determines which backend is actually used is defined
+ * in examples/plurals/frontend/settings.php
+ */
 abstract class AbstractBackend
 {
   /**
@@ -36,9 +47,31 @@ abstract class AbstractBackend
     return $return;
   }
 
+  /**
+   * Returns the username to use as a credential to the backend.
+   *
+   * @return
+   *   The username as string.
+   */
   public abstract function getUser();
+
+  /**
+   * Returns the password to use as a credential to the backend.
+   *
+   * @return
+   *   The password as string.
+   */
   public abstract function getPass();
 
+  /**
+   * Returns the result from the backend.
+   *
+   * @param $post
+   *   An associative array containing post data to pass to the backend.
+   *
+   * @return
+   *   The password as string.
+   */
   abstract protected function getCurlResult($post);
 
 }

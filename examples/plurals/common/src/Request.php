@@ -22,9 +22,6 @@ class Request
    *
    * @return
    *   The output of a server
-   *
-   * @throws
-   *   Exception
    */
   public function get($server, $post = array()) {
     $ch = curl_init();

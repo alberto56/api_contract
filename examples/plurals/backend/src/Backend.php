@@ -4,6 +4,12 @@
  * Backend class code.
  */
 
+/**
+ * Implements the API implementor as a backend in the context of the backend
+ * project. This class does the actual implementation, and is tested (see
+ * examples/plurals/backend/test/BackendTest.php) to make sure it returns
+ * the correct data which is defined in our examples/plurals/api/post.csv file.
+ */
 class Backend
 {
   /**

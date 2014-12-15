@@ -1,18 +1,24 @@
 <?php
 /**
  * @file
- * APIFormatter class code.
+ * APIContract class code.
  */
 
+// Not sure why this file is included twice, and we get Fatal error: Cannot redeclare
+// class APIContract in /.../src/APIContract.php on line 15 if we do not check whether
+// the class already exists.
+if (!class_exists('APIContract')):
 /**
- * ApiFormatter class.
+ * APIContract class.
  *
- * Takes an [APITesting](https://github.com/alberto56/api_contract) CSV file and formats it
- * as a web page. In your project, create a .php file which will serve as your fake
- * API, and make it look somewhat [like this](https://github.com/alberto56/api_contract/blob/dev/1/examples/plurals/frontend/fake-backend.php).
+ * Provides helper functions for API consumers and API implementors based on a
+ * [API Contract](https://github.com/alberto56/api_contract) CSV file.
+ *
+ * Please look at the code in examples/plurals/frontend to see how an API consumer
+ * might use this class; and look at examples/plurals/backend to see how an API
+ * implementor might use this class.
  */
-if (!class_exists('ApiFormatter')):
-class ApiFormatter {
+class APIContract {
   // Data taken from the CSV at contruction time and saved as an associate array.
   private $data = array();
 
@@ -41,13 +47,14 @@ class ApiFormatter {
   /**
    * Returns a formatted page based on what is in our CSV file.
    *
-   * Uses the environment's $_POST variable.
-   *
+   * @param $post
+   *   Post data as an associative array
    * Look at [this page](https://github.com/alberto56/api_contract/blob/dev/1/examples/plurals/frontend/fake-backend.php)
    * for example usage.
    *
    * @return
-   *   Formatted HTML.
+   *   The data which is in the "__response" column if the data is a row in our CSV file;
+   *   or an error string.
    */
   function getFormatted($post) {
     try {
@@ -84,7 +91,7 @@ class ApiFormatter {
   /**
    * Return TRUE if a data row validates.
    *
-   * In [APITesting](https://github.com/alberto56/api_contract), an interface between
+   * In [API Contract](https://github.com/alberto56/api_contract), an interface between
    * a client and server is documented as a CSV file with example inputs and outputs.
    * This function takes one row of that CSV file, formatted as an associative array,
    * and returns TRUE if the $post data corresponds to it.
@@ -198,6 +205,28 @@ class ApiFormatter {
     return $return;
   }
 
+  /**
+   * Removes internal keys that begin with __ from an associative array.
+   *
+   * @param $row
+   *   An associative array, something like:
+   *     array(
+   *       '__whatever' => 'one',
+   *       '__whatever2' => 'two',
+   *       'whatever3' => 'three',
+   *       'whatever4' => 'four',
+   *       '__whatever5' => 'five',
+   *     ),
+   *   ),
+   *
+   * @return
+   *   An associative array, something like:
+   *     array(
+   *       'whatever3' => 'three',
+   *       'whatever4' => 'four',
+   *     ),
+   *   ),
+   */
   function removeInternal($row) {
     $return = array();
     foreach ($row as $key => $data) {

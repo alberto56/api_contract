@@ -13,36 +13,21 @@ require_once(dirname(__FILE__) . '/../../common/src/EnvSettings.php');
 class RealBackend extends AbstractBackend
 {
   /**
-   * Get the user for authenticating with the backend server.
-   *
-   * @return
-   *   The username as a string.
-   *
-   * @throws
-   *   Exception
+   * {@inheritdoc}
    */
   public function getUser() {
     return EnvSettings::get('frontend', 'user');
   }
 
   /**
-   * Get the password for authenticating with the backend server.
-   *
-   * @return
-   *   The password as a plain text string.
-   *
-   * @throws
-   *   Exception
+   * {@inheritdoc}
    */
   public function getPass() {
     return EnvSettings::get('frontend', 'pass');
   }
 
   /**
-   * Get the result from a server.
-   *
-   * @throws
-   *   Exception
+   * {@inheritdoc}
    */
   protected function getCurlResult($post) {
     require_once(dirname(__FILE__) . '/../../common/src/Request.php');

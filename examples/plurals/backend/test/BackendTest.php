@@ -11,6 +11,11 @@
  */
 class BackendTest extends PHPUnit_Framework_TestCase
 {
+  /**
+   * Tests that the page is actually available via HTTP.
+   *
+   * Requires that settings.php be well defiend.
+   */
   public function testPageAvailable() {
     require_once(dirname(__FILE__) . '/../../common/src/Request.php');
     require_once(dirname(__FILE__) . '/../../common/src/EnvSettings.php');
@@ -28,8 +33,8 @@ class BackendTest extends PHPUnit_Framework_TestCase
    */
   public function testResponses() {
     require_once(dirname(__FILE__) . '/../src/Backend.php');
-    require_once(dirname(__FILE__) . '/../../../../src/APIFormatter.php');
-    $api = new ApiFormatter(dirname(__FILE__) . '/../../api');
+    require_once(dirname(__FILE__) . '/../../../../src/APIContract.php');
+    $api = new APIContract(dirname(__FILE__) . '/../../api');
     $backend = new Backend();
     // Requiring the Flourish library here will throw an Exception if the installation
     // did not include submodules, which will throw a meaningful error.
@@ -41,4 +46,5 @@ class BackendTest extends PHPUnit_Framework_TestCase
       }
     }
   }
+
 }

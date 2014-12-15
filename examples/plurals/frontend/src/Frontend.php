@@ -8,10 +8,17 @@
  * Represents the frontend system.
  */
 class Frontend {
+  // An object of class AbstractBackend, to use to communicate with either
+  // the real or fake backend.
   private $backend;
 
-  public function __construct($backend)
-  {
+  /**
+   * Constructor
+   *
+   * @param $backend
+   *   An object of class AbstractBackend.
+   */
+  public function __construct($backend) {
     $this->backend = $backend;
   }
 
@@ -25,6 +32,15 @@ class Frontend {
     return $this->backend;
   }
 
+  /**
+   * Returns the HTML page.
+   *
+   * @param $post
+   *   Post data
+   *
+   * @return
+   *   HTML data
+   */
   public function getPage($post) {
     return '<html>
   <body>
@@ -40,6 +56,15 @@ class Frontend {
 </html>';
   }
 
+  /**
+   * Get the result to display to the user based on post data
+   *
+   * @param $post
+   *   Post data
+   *
+   * @return
+   *   An associative array with error, message, or plural
+   */
   public function getResult($post) {
     if (isset($post['word'])) {
       return $this->getBackend()->getPlural($post['word']);
@@ -49,6 +74,15 @@ class Frontend {
     }
   }
 
+  /**
+   * Formats the result as a string
+   *
+   * @param $result
+   *   An associative array with error, message, or plural
+   *
+   * @return
+   *   HTML string
+   */
   public function formatResult($result) {
     if (isset($result['message'])) {
       return htmlspecialchars($result['message']);
@@ -61,6 +95,15 @@ class Frontend {
     }
   }
 
+  /**
+   * Returns an HTML string based on post data
+   *
+   * @param $post
+   *   Post data as an associative array
+   *
+   * @return
+   *   HTML string
+   */
   public function getFormattedResult($post) {
     return $this->formatResult($this->getResult($post));
   }
