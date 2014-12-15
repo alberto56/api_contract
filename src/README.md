@@ -1,5 +1,5 @@
-API Testing
-===========
+API Contract
+============
 
 Formalize and test the API interface between a client and server.
 

@@ -7,9 +7,9 @@
 /**
  * ApiFormatter class.
  *
- * Takes an [APITesting](https://github.com/alberto56/apitesting) CSV file and formats it
+ * Takes an [APITesting](https://github.com/alberto56/api_contract) CSV file and formats it
  * as a web page. In your project, create a .php file which will serve as your fake
- * API, and make it look somewhat [like this](https://github.com/alberto56/apitesting/blob/dev/1/examples/plurals/frontend/fake-backend.php).
+ * API, and make it look somewhat [like this](https://github.com/alberto56/api_contract/blob/dev/1/examples/plurals/frontend/fake-backend.php).
  */
 if (!class_exists('ApiFormatter')):
 class ApiFormatter {
@@ -43,7 +43,7 @@ class ApiFormatter {
    *
    * Uses the environment's $_POST variable.
    *
-   * Look at [this page](https://github.com/alberto56/apitesting/blob/dev/1/examples/plurals/frontend/fake-backend.php)
+   * Look at [this page](https://github.com/alberto56/api_contract/blob/dev/1/examples/plurals/frontend/fake-backend.php)
    * for example usage.
    *
    * @return
@@ -84,7 +84,7 @@ class ApiFormatter {
   /**
    * Return TRUE if a data row validates.
    *
-   * In [APITesting](https://github.com/alberto56/apitesting), an interface between
+   * In [APITesting](https://github.com/alberto56/api_contract), an interface between
    * a client and server is documented as a CSV file with example inputs and outputs.
    * This function takes one row of that CSV file, formatted as an associative array,
    * and returns TRUE if the $post data corresponds to it.

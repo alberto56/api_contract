@@ -23,7 +23,7 @@ class BackendTest extends PHPUnit_Framework_TestCase
   /**
    * Tests that the correct responses are returned provided the example queries.
    *
-   * This is test case which best demonstrates how API Testing can be used to
+   * This is test case which best demonstrates how API Contract can be used to
    * confirm that the server responds as expected.
    */
   public function testResponses() {

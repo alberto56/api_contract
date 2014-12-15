@@ -1,10 +1,12 @@
-API Testing
+API Contract
 ===========
 
 Formalize and test the API interface between a client and server.
 
 Introduction
 ------------
+
+API Contract is an implementation of [design by contract](http://en.wikipedia.org/wiki/Design_by_contract) applied to APIs, for API implementors and API consumers.
 
 Let's say you are developing two systems which are communicating together through a RESTful API, a problem often arises where the API itself is documented in a wiki, and is therefore immediately out of date.
 
@@ -13,14 +15,14 @@ Installation
 
 ### Basic installation with examples
 
-    git clone git@github.com:alberto56/apitesting.git
-    cd apitesting
+    git clone git@github.com:alberto56/api_contract.git
+    cd api_contract
     cp examples/plurals/frontend/example.settings.php examples/plurals/frontend/settings.php
     cp examples/plurals/backend/example.settings.php examples/plurals/backend/settings.php
     git submodule init
     git submodule update
 
-Example code and tests will require that certain files be accessible via HTTP. If you wish to try the examples or run tests, you must be able to visit `examples/plurals/frontend/index.php` and `examples/plurals/backend/index.php` on a web browser. If this project is available at `http://localhost/apitesting`, so that `http://localhost/apitesting/examples/plurals/frontend/index.php` gives you a simple form, then you have finished installation. Otherwise, modify the following two files and set `$settings['frontend_server']` and `$settings['backend_server']`:
+Example code and tests will require that certain files be accessible via HTTP. If you wish to try the examples or run tests, you must be able to visit `examples/plurals/frontend/index.php` and `examples/plurals/backend/index.php` on a web browser. If this project is available at `http://localhost/api_contract`, so that `http://localhost/api_contract/examples/plurals/frontend/index.php` gives you a simple form, then you have finished installation. Otherwise, modify the following two files and set `$settings['frontend_server']` and `$settings['backend_server']`:
 
  * `./examples/plurals/frontend/settings.php`
  * `./examples/plurals/backend/settings.php`
@@ -49,7 +51,7 @@ The approach proposed here is to not document the API interface, but to release 
 
 Take a look at the `examples/plurals` folder herein.
 
-Once you have installed API Testing this on a web server at (for example) http://localhost/apitesting, you can visit http://localhost/apitesting/examples/plurals/frontend/, enter
+Once you have installed API Contract this on a web server at (for example) http://localhost/api_contract, you can visit http://localhost/api_contract/examples/plurals/frontend/, enter
 
 How to run automated tests
 --------------------------
