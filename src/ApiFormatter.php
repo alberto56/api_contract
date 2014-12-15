@@ -11,6 +11,7 @@
  * as a web page. In your project, create a .php file which will serve as your fake
  * API, and make it look somewhat [like this](https://github.com/alberto56/apitesting/blob/dev/1/examples/plurals/frontend/fake-backend.php).
  */
+if (!class_exists('ApiFormatter')):
 class ApiFormatter {
   // Data taken from the CSV at contruction time and saved as an associate array.
   private $data = array();
@@ -154,4 +155,58 @@ class ApiFormatter {
     }
   }
 
+  /**
+   * Returns sample requests and responses based on a csv file
+   *
+   * @return
+   *     array(
+   *       array(
+   *         '__whatever' => 'one',
+   *         '__whatever2' => 'two',
+   *         'whatever3' => 'three',
+   *         'whatever4' => 'four',
+   *         '__whatever5' => 'five',
+   *       ),
+   */
+  function getData() {
+    return $this->data;
+  }
+
+  /**
+   * Returns sample requests and responses formatted for consumption by a backend test.
+   *
+   * @return
+   *     array(
+   *       'response' => array(
+   *         array(
+   *           '__whatever' => 'one',
+   *           '__whatever2' => 'two',
+   *           'whatever3' => 'three',
+   *           'whatever4' => 'four',
+   *           '__whatever5' => 'five',
+   *         ),
+   *       ),
+   */
+  function getResponses() {
+    $return = array();
+    foreach ($this->GetData() as $row) {
+      if (!isset($return[$row['__response']])) {
+        $return[$row['__response']] = array();
+      }
+      $return['__response'][] = $this->removeInternal($row);
+    }
+    return $return;
+  }
+
+  function removeInternal($row) {
+    $return = array();
+    foreach ($row as $key => $data) {
+      if ($this->userParam($key)) {
+        $return[$key] = $data;
+      }
+    }
+    return $return;
+  }
+
 }
+endif;

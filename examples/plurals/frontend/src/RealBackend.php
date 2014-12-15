@@ -4,13 +4,13 @@
  * RealBackend class code.
  */
 
-require_once(dirname(__FILE__) . '/Backend.php');
-require_once(dirname(__FILE__) . '/Settings.php');
+require_once(dirname(__FILE__) . '/AbstractBackend.php');
+require_once(dirname(__FILE__) . '/../../common/src/Settings.php');
 
 /**
  * An interface to real backend server
  */
-class RealBackend extends Backend
+class RealBackend extends AbstractBackend
 {
   /**
    * Get the user for authenticating with the backend server.
@@ -22,7 +22,7 @@ class RealBackend extends Backend
    *   Exception
    */
   public function getUser() {
-    return Settings::get('user');
+    return Settings::get('frontend', 'user');
   }
 
   /**
@@ -35,7 +35,7 @@ class RealBackend extends Backend
    *   Exception
    */
   public function getPass() {
-    return Settings::get('pass');
+    return Settings::get('frontend', 'pass');
   }
 
   /**
@@ -45,9 +45,9 @@ class RealBackend extends Backend
    *   Exception
    */
   protected function getCurlResult($post) {
-    require_once(dirname(__FILE__) . '/Request.php');
+    require_once(dirname(__FILE__) . '/../../common/src/Request.php');
     $request = new Request();
-    return $request->get(Settings::get('backend_server'), $post);
+    return $request->get(Settings::get('frontend', 'backend_server'), $post);
   }
 
 }

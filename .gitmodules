@@ -1,0 +1,3 @@
+[submodule "examples/plurals/backend/libraries/flourish-classes"]
+	path = examples/plurals/backend/libraries/flourish-classes
+	url = git://github.com/flourishlib/flourish-classes.git

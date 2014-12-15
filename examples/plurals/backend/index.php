@@ -1,5 +1,9 @@
 <?php
 /**
  * @file
- * This file will eventually contain the backend code.
+ * A page request to the frontend.
  */
+
+require_once('src/Backend.php');
+$backend = new Backend();
+echo $backend->getPage($_POST);

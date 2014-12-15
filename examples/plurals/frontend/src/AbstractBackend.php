@@ -4,7 +4,7 @@
  * Backend class code.
  */
 
-abstract class Backend
+abstract class AbstractBackend
 {
   /**
    * Gets the plural version of a singular noun.
@@ -20,7 +20,6 @@ abstract class Backend
    *   plural noun.
    */
   public function getPlural($singular) {
-    $server = $this->getUrl();
     $post = array(
       'user' => $this->getUser(),
       'pass' => $this->getPass(),

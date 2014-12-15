@@ -5,8 +5,8 @@
  */
 
 require_once('src/Frontend.php');
-require_once('src/Settings.php');
-if (Settings::get('backend_type') == 'fake') {
+require_once('../common/src/Settings.php');
+if (Settings::get('frontend', 'backend_type') == 'fake') {
   require_once('src/FakeBackend.php');
   $backend = new FakeBackend();
 }

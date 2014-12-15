@@ -7,9 +7,9 @@
 define('FAKE_BACKEND_RIGHT_CREDENTIALS', 1);
 define('FAKE_BACKEND_WRONG_CREDENTIALS', 0);
 
-require_once(dirname(__FILE__) . '/Backend.php');
+require_once(dirname(__FILE__) . '/AbstractBackend.php');
 
-class FakeBackend extends Backend {
+class FakeBackend extends AbstractBackend {
   private $credentials;
 
   public function __construct() {
@@ -21,8 +21,8 @@ class FakeBackend extends Backend {
   }
 
   public function getUrl() {
-    require_once(dirname(__FILE__) . '/Settings.php');
-    return Settings::get('frontend_server') . '/fake-backend.php';
+    require_once(dirname(__FILE__) . '/../../common/src/Settings.php');
+    return Settings::get('frontend', 'frontend_server') . '/fake-backend.php';
   }
   public function getUser() {
     return 'username';
