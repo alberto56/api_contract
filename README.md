@@ -78,3 +78,8 @@ How to run automated tests
 
  * Install [PHPUnit](https://phpunit.de)
  * Run `phpunit ./` from the command line at the root of the project.
+
+Continuous integration
+----------------------
+
+There is currently an [open issue](https://github.com/alberto56/api_contract/issues/7) for integration with the [Travis CI](https://travis-ci.org/alberto56/api_contract) continuous integration platform.
