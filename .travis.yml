@@ -3,3 +3,8 @@ php:
   - 5.5
   - 5.4
   - hhvm
+script: scripts/test.sh
+install:
+  - sudo apt-get install apache2
+  - sudo service apache2 start
+  - curl -v "http://localhost/
