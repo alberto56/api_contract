@@ -82,6 +82,4 @@ How to run automated tests
 Continuous integration
 ----------------------
 
-I am currently experimenting with [Travis CI](https://travis-ci.org/alberto56/api_contract), with the following result:
-
-<img src="https://travis-ci.org/alberto56/api_contract.svg?branch=travis" />
+There is currently an [open issue](https://github.com/alberto56/api_contract/issues/7) for integration with the [Travis CI](https://travis-ci.org/alberto56/api_contract) continuous integration platform.
