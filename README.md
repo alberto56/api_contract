@@ -18,12 +18,13 @@ Using API Contract, you can write a CSV with examples of requests and responses,
 Other resources and projects
 ---------------
 
-API Contract is meant to be very simple and applies to PHP projects only. If you are looking for something more robust, please see the following resources:
+API Contract is meant to be very simple and applies to PHP projects only; it is mainly a proof of concept. If you are looking for something more robust, please see the following resources:
 
  * [Blog post: API as the definition of the truth](http://apievangelist.com/2014/07/15/an-api-definition-as-the-truth-in-the-api-contract/)
  * [Project: API blueprint](https://apiblueprint.org)
  * [Project: Swagger](http://swagger.io)
  * [Project: RAML](http://raml.org)
+ * [Project: Pact](https://github.com/realestate-com-au/pact)
 
 Installation
 ------------
