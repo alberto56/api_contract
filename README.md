@@ -31,7 +31,7 @@ Installation
 
 ### Basic installation with examples
 
-    git clone git@github.com:alberto56/api_contract.git
+    git clone https://github.com/alberto56/api_contract.git
     cd api_contract
     cp examples/plurals/frontend/example.settings.php examples/plurals/frontend/settings.php
     cp examples/plurals/backend/example.settings.php examples/plurals/backend/settings.php
